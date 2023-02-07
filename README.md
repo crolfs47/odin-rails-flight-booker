@@ -1,24 +1,27 @@
-# README
+# odin-rails-flight-tracker
+## The Odin Project - Flight Tracker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Project completed as part of The Odin Project. Build an app that handles the first three steps of a typical 
+checkout process for booking a one-way flight - 1. Enter desired dates/airports and search, 2. Choose from
+among a list of available flights, 3. Enter passenger info for all passengers.
 
-Things you may want to cover:
+## Languages/Technologies used:
+ - Rails 
+ - Ruby
+ - PostgreSQL
+ - CSS - Bulma
+ - VS Code
+ - Git/Github
+ - Forms
 
-* Ruby version
+## What I learned:
+ - 
+ 
+## Still can improve:
+ - 
 
-* System dependencies
+Assignment - https://www.theodinproject.com/lessons/ruby-on-rails-flight-booker
 
-* Configuration
+View Project  - TBD, haven't decided what to deploy on since Heroku is no longer free. See screenshots below.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Screenshots: 
