@@ -27,6 +27,7 @@ puts "Created #{airports.length} airports"
 #   p depart.id
 # end
 
+
 flights = Flight.create([
   { departure_airport_id: 1, arrival_airport_id: 2, depart_date: "2023-03-01", flight_duration: 120 },
   { departure_airport_id: 2, arrival_airport_id: 3, depart_date: "2023-03-02", flight_duration: 120 },
