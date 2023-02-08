@@ -6,44 +6,22 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-Airport.create([{
-                 code: 'ORD',
-                 city: 'Chicago' },
-                { code: 'MDW',
-                  city: 'Chicago' },
-                { code: 'LAX',
-                  city: 'Los Angeles' },
-                { code: 'SFO',
-                  city: 'San Francisco' },
-                { code: 'LGA',
-                  city: 'New York' },
-                { code: 'JFK',
-                  city: 'New York' },
-                { code: 'MIA',
-                  city: 'Miami' },
-                { code: 'DEN',
-                  city: 'Denver' },
-                { code: 'EWR',
-                  city: 'Newark' },
-                { code: 'BOS',
-                  city: 'Boston' },
-                { code: 'ATL',
-                  city: 'Atlanta' },
-                { code: 'DFW',
-                  city: 'Dallas' },
-                { code: 'AUS',
-                  city: 'Austin' },
-                { code: 'PIT',
-                  city: 'Pittsburgh' },
-                { code: 'SEA',
-                  city: 'Seattle' },
-                { code: 'PHX',
-                  city: 'Phoenix' },
-                { code: 'HNL',
-                  city: 'Honolulu' },
-                { code: 'MSP',
-                  city: 'Minneapolis-St. Paul' },
-                { code: 'LAS',
-                  city: 'Las Vegas' },
-                { code: 'CHS',
-                  city: 'Charleston' }])
+Airport.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('airports')
+
+airports = Airport.create([
+  { code: 'ORD', city: 'Chicago' },
+  { code: 'LAX', city: 'Los Angeles' },
+  { code: 'MIA', city: 'Miami' },
+  { code: 'DEN', city: 'Denver' },
+  { code: 'CLT', city: 'Charlotte' },
+  { code: 'ATL', city: 'Atlanta' },
+  { code: 'DFW', city: 'Dallas' },
+  { code: 'PHX', city: 'Phoenix' },
+  { code: 'MCO', city: 'Orlando' },
+  { code: 'LAS', city: 'Las Vegas' }])
+
+puts "Created #{airports.length} airports"
+# Flight.create([{
+
+#               }])
