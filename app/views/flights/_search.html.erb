@@ -13,7 +13,7 @@
   </div>
   <div>
     <%= form.label :depart_date, "Date" %>
-    <%= form.date_select :depart_date, start_year: 2023, use_short_month: true, order: [:month, :day, :year], selected: @selected_date %>
+    <%= form.date_select :depart_date, start_year: Date.today.year, use_short_month: true, order: [:month, :day, :year], selected: @selected_date %>
   </div>
   <%= form.submit "Search" %>
 <% end %>
