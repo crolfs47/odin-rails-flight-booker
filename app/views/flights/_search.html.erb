@@ -1,0 +1,19 @@
+<%= form_with url: flights_path, method: :get do |form| %>
+  <div>
+    <%= form.label :departure_airport_id, "Depart" %>
+    <%= form.select(:departure_airport_id, @airport_options) %>
+  </div>
+  <div>
+    <%= form.label :arriving_airport_id, "Arrive" %>
+    <%= form.select(:arriving_airport_id, @airport_options) %>
+  </div>
+  <div>
+    <%= form.label :num_passengers, "Passengers" %>
+    <%= form.select(:num_passengers, [1,2,3,4]) %>
+  </div>
+  <div>
+    <%= form.label :depart_date, "Date" %>
+    <%= form.select(:depart_date, @date_options) %>
+  </div>
+  <%= form.submit "Search" %>
+<% end %>

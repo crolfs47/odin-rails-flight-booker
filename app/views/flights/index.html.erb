@@ -1,21 +1,22 @@
 <h1>Flights Index</h1>
 
-<%= form_with url: flights_path, method: :get do |form| %>
-  <div>
-    <%= form.label :departure_code, "Depart" %>
-    <%= form.select(:departure_code, @airport_options) %>
-  </div>
-  <div>
-    <%= form.label :arrival_code, "Arrive" %>
-    <%= form.select(:arrival_code, @airport_options) %>
-  </div>
-  <div>
-    <%= form.label :num_passengers, "Passengers" %>
-    <%= form.select(:num_passengers, [1,2,3,4]) %>
-  </div>
-  <div>
-    <%= form.label :depart_date, "Date" %>
-    <%= form.select(:depart_date, @flight_dates) %>
-  </div>
-  <%= form.submit "Search" %>
+<%= render "search" %>
+
+
+<div>
+<% @flights.where(departure_airport_id: params[:departure_code]).each do |flight| %>
+  <%= flight.departure_airport.code %>
 <% end %>
+</div>
+
+<h3>Flight Options</h3>
+<% @flight_options.each do |flight| %>
+  <%= flight.departure_airport.code %>
+  <% end %>
+
+<h3>All Flights</h3>
+<% @flights.each do |flight| %>
+  <%= flight.departure_airport.code %>
+  <% end %>
+
+
