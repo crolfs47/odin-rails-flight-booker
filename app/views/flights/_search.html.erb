@@ -4,8 +4,8 @@
     <%= form.select(:departure_airport_id, @airport_options) %>
   </div>
   <div>
-    <%= form.label :arriving_airport_id, "Arrive" %>
-    <%= form.select(:arriving_airport_id, @airport_options) %>
+    <%= form.label :arrival_airport_id, "Arrive" %>
+    <%= form.select(:arrival_airport_id, @airport_options) %>
   </div>
   <div>
     <%= form.label :num_passengers, "Passengers" %>
@@ -13,7 +13,7 @@
   </div>
   <div>
     <%= form.label :depart_date, "Date" %>
-    <%= form.select(:depart_date, @date_options) %>
+    <%= form.date_select :depart_date, start_year: 2023, use_short_month: true, order: [:month, :day, :year]%>
   </div>
   <%= form.submit "Search" %>
 <% end %>
