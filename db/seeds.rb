@@ -8,6 +8,8 @@
 
 Airport.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!('airports')
+Flight.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('flights')
 
 airports = Airport.create([
   { code: 'ORD', city: 'Chicago' },

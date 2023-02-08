@@ -3,8 +3,8 @@ class FlightsController < ApplicationController
 
   def index
     @flights = Flight.all
-    @flight_dates = @flights.map{ |flight| [flight.depart_date.strftime("%m/%d/%Y"), flight.id]}
-    @airport_options = Airport.all.map{ |airport| [airport.code, airport.id]}
+    @flight_dates = @flights.map{ |flight| [flight.depart_date.strftime("%m/%d/%Y")]}
+    @airport_options = Airport.all.map{ |airport| [airport.code]}
   end
 
   private
