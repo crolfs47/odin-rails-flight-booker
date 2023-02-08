@@ -32,8 +32,8 @@ puts "Created #{airports.length} airports"
 
 flights = Flight.create([
   { departure_airport_id: 1, arrival_airport_id: 2, depart_date: "2023-03-01", flight_duration: 120 },
-  { departure_airport_id: 1, arrival_airport_id: 2, depart_date: "2023-03-02", flight_duration: 120 },
-  { departure_airport_id: 1, arrival_airport_id: 2, depart_date: "2023-03-03", flight_duration: 120 },
+  { departure_airport_id: 1, arrival_airport_id: 2, depart_date: "2023-03-01", flight_duration: 120 },
+  { departure_airport_id: 1, arrival_airport_id: 2, depart_date: "2023-03-01", flight_duration: 120 },
   { departure_airport_id: 1, arrival_airport_id: 3, depart_date: "2023-03-01", flight_duration: 120 },
   { departure_airport_id: 1, arrival_airport_id: 4, depart_date: "2023-03-01", flight_duration: 120 },
   { departure_airport_id: 1, arrival_airport_id: 5, depart_date: "2023-03-01", flight_duration: 120 },
