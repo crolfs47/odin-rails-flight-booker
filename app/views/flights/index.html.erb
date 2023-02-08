@@ -2,7 +2,6 @@
 
 <%= render "search" %>
 
-
 <div>
 <% @flights.where(departure_airport_id: params[:departure_code]).each do |flight| %>
   <%= flight.departure_airport.code %>
@@ -15,7 +14,6 @@
     <%= flight.departure_airport.code %>
     <%= flight.arrival_airport.code %>
     <%= flight.depart_date %>
-    <%= params[:depart_date] %>
   </div>
 <% end %>
 
