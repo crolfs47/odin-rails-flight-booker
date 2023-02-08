@@ -1,4 +1,4 @@
-<h1>Flights Index</h1>
+<h1>Flight Tracker</h1>
 
 <%= render "search" %>
 
@@ -8,11 +8,16 @@
 <% end %>
 </div>
 
-<h3>Flight Options</h3>
-<% @available_flights.each do |flight| %>
-  <div>
-    <%= flight.departure_airport.code %>
-    <%= flight.arrival_airport.code %>
-    <%= flight.depart_date %>
-  </div>
+<h3>Available Flights</h3>
+
+<%= form_with method: :get do |form| %>
+  <% @available_flights.each do |flight| %>
+    <div>
+      <%= form.radio_button :flight_id, flight.id %>
+      <%= flight.departure_airport.code %>
+      <%= flight.arrival_airport.code %>
+    </div>
+  <% end %>
+  <%= form.submit "Select" %>
 <% end %>
+
