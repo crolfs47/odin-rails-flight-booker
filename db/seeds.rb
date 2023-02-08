@@ -22,6 +22,21 @@ airports = Airport.create([
   { code: 'LAS', city: 'Las Vegas' }])
 
 puts "Created #{airports.length} airports"
-# Flight.create([{
 
-#               }])
+# airports.each do |depart|
+#   p depart.id
+# end
+
+flights = Flight.create([
+  { departure_airport_id: 1, arrival_airport_id: 2, depart_date: "2023-03-01", flight_duration: 120 },
+  { departure_airport_id: 2, arrival_airport_id: 3, depart_date: "2023-03-02", flight_duration: 120 },
+  { departure_airport_id: 3, arrival_airport_id: 4, depart_date: "2023-03-03", flight_duration: 120 },
+  { departure_airport_id: 4, arrival_airport_id: 5, depart_date: "2023-03-04", flight_duration: 120 },
+  { departure_airport_id: 5, arrival_airport_id: 6, depart_date: "2023-03-05", flight_duration: 120 },
+  { departure_airport_id: 6, arrival_airport_id: 7, depart_date: "2023-03-06", flight_duration: 120 },
+  { departure_airport_id: 7, arrival_airport_id: 8, depart_date: "2023-03-07", flight_duration: 120 },
+  { departure_airport_id: 8, arrival_airport_id: 9, depart_date: "2023-03-08", flight_duration: 120 },
+  { departure_airport_id: 9, arrival_airport_id: 10, depart_date: "2023-03-09", flight_duration: 120 },
+  { departure_airport_id: 10, arrival_airport_id: 1, depart_date: "2023-03-10", flight_duration: 120 },
+              ])
+puts "Created #{flights.length} flights"
