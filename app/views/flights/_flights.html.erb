@@ -1,7 +1,7 @@
 
 <% if params['depart_date(1i)'].present? %>
   <h3>Available Flights</h3>
-  <%= form_with method: :get do |form| %>
+  <%= form_with url: new_booking_path, method: :get do |form| %>
     <% if @available_flights.length == 0 %>
       <%= "No available flights on that date" %>
     <% else %> 

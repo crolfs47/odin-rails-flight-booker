@@ -1,7 +1,7 @@
 class FlightsController < ApplicationController
   def index
     @flights = Flight.all
-    @date_options = Flight.all.map { |flight| [flight.depart_date_formatted] }
+    # @date_options = Flight.all.map { |flight| [flight.depart_date_formatted] }
     @airport_options = Airport.all.map { |airport| [airport.code, airport.id] }
     @available_flights = find_flights
 
