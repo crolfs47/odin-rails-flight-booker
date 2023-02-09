@@ -1,28 +1,27 @@
 <h1> Booking </h1>
 
-<h3>Flight Details</h3>
-<div>
-  <%= "Depart: #{@flight.departure_airport.code}" %><br>
-  <%= "Arrive: #{@flight.arrival_airport.code}" %><br>
-  <%= "Date: #{@flight.depart_date.strftime('%B %d, %Y')}" %><br>
-  <%= "Time: #{@flight.depart_time.strftime('%-I:%M %p')}" %>
-</div><br>
-
-<div>
-<%= form_with model: @passenger, url: new_booking_path do |form| %>
-  <%= form.label :first_name, "First Name" %>
-  <%= form.text_field :first_name %>
-  <%= form.label :last_name, "Last Name" %>
-  <%= form.text_field :last_name %>
-  <%= form.label :email, "Email" %>
-  <%= form.text_field :email %><br>
-  <%= form.submit "Book Flight" %>
-<%end%>
-</div>
-
 <div>
 <%= form_with model: @booking do |form| %>
-  <% form.label :first_name %>
+  <h3>Flight Details</h3>
+  <div>
+    <%= form.hidden_field :flight_id, value: @flight.id %>
+    <%= "Depart: #{@flight.departure_airport.code}" %><br>
+    <%= "Arrive: #{@flight.arrival_airport.code}" %><br>
+    <%= "Date: #{@flight.depart_date.strftime('%B %d, %Y')}" %><br>
+    <%= "Time: #{@flight.depart_time.strftime('%-I:%M %p')}" %>
+  </div><br>
+  Passengers:
+  <div>
+    <%= form.fields_for :passengers do |passenger_form| %>
+      <%= passenger_form.label :first_name, "First Name" %>
+      <%= passenger_form.text_field :first_name %>
+      <%= passenger_form.label :last_name, "Last Name" %>
+      <%= passenger_form.text_field :last_name %>
+      <%= passenger_form.label :email, "Email" %>
+      <%= passenger_form.text_field :email %>
+    <%end%><br>
+    <%= form.submit "Book Flight" %>
+  </div>
 <%end%>
 </div>
 
