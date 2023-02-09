@@ -5,12 +5,11 @@
     <% if @available_flights.length == 0 %>
       <%= "No available flights on that date" %>
     <% else %> 
+      <%= form.hidden_field :num_passengers, value: params[:num_passengers] %>
       <% @available_flights.each do |flight| %>
         <div>
           <%= form.radio_button :flight_id, flight.id %>
-          <%= flight.departure_airport.code %>
-          <%= "to #{flight.arrival_airport.code}" %>
-          <%= "Departs at #{flight.depart_time.strftime('%I:%M %p')}" %>
+          <%= "#{flight.departure_airport.code} to #{flight.arrival_airport.code} - Departs at #{flight.depart_time.strftime('%I:%M %p')}" %>
         </div><br>
       <% end %>
       <%= form.submit "Select" %>
