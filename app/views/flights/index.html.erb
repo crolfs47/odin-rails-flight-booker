@@ -2,22 +2,8 @@
 
 <%= render "search" %>
 
-<div>
-<% @flights.where(departure_airport_id: params[:departure_code]).each do |flight| %>
-  <%= flight.departure_airport.code %>
-<% end %>
-</div>
 
 <h3>Available Flights</h3>
 
-<%= form_with method: :get do |form| %>
-  <% @available_flights.each do |flight| %>
-    <div>
-      <%= form.radio_button :flight_id, flight.id %>
-      <%= flight.departure_airport.code %>
-      <%= flight.arrival_airport.code %>
-    </div>
-  <% end %>
-  <%= form.submit "Select" %>
-<% end %>
+<%= render "flights" %>
 
