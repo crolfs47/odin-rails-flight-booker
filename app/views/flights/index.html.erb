@@ -1,9 +1,19 @@
-<div class="section">
+<br>
+<div class="container">
   <section class="box">
     <div>
       <h1 class="title is-4">BOOK A ONE-WAY FLIGHT</h1>
       <%= render "search" %>
-      <%= render "flights" %>
     </div>
   </section>
 </div>
+<br>
+<% if params['depart_date(1i)'].present? %>
+  <div class="container">
+    <section class="box">
+      <div>
+        <%= render "flights" %>
+      </div>
+    </section>
+  </div>
+<% end %>
