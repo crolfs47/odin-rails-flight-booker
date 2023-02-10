@@ -4,7 +4,7 @@
 <%= form_with model: @booking do |form| %>
   <h3>Flight Details</h3>
   <div>
-    <%= form.hidden_field :flight_id, value: @flight.id %>
+    <%= form.hidden_field :flight_id, value: params[:flight_id] %>
     <%= "Depart: #{@flight.departure_airport.code}" %><br>
     <%= "Arrive: #{@flight.arrival_airport.code}" %><br>
     <%= "Date: #{@flight.depart_date.strftime('%B %d, %Y')}" %><br>
@@ -15,11 +15,11 @@
     <%= form.fields_for :passengers do |passenger_form| %>
       <div>
         <%= passenger_form.label :first_name, "First Name" %>
-        <%= passenger_form.text_field :first_name %>
+        <%= passenger_form.text_field :first_name, required: true %>
         <%= passenger_form.label :last_name, "Last Name" %>
-        <%= passenger_form.text_field :last_name %>
+        <%= passenger_form.text_field :last_name, required: true %>
         <%= passenger_form.label :email, "Email" %>
-        <%= passenger_form.text_field :email %>
+        <%= passenger_form.text_field :email, required: true %>
       </div>
     <%end%><br>
     <%= form.submit "Book Flight" %>

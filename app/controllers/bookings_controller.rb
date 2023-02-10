@@ -9,14 +9,16 @@ class BookingsController < ApplicationController
   end
 
   def create 
-    @booking = Booking.create(booking_params)
+    @booking = Booking.new(booking_params)
 
     if @booking.save
       redirect_to @booking
     else
-      render :new
+      render :new # status: :unprocessable_entity
     end
-    
+  end
+
+  def show
   end
 
   private 
