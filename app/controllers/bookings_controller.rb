@@ -9,6 +9,14 @@ class BookingsController < ApplicationController
   end
 
   def create 
+    @booking = Booking.create(booking_params)
+
+    if @booking.save
+      redirect_to @booking
+    else
+      render :new
+    end
+    
   end
 
   private 
