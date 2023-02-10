@@ -1,19 +1,42 @@
 <%= form_with url: flights_path, method: :get do |form| %>
-  <div>
-    <%= form.label :departure_airport_id, "Depart" %>
-    <%= form.select(:departure_airport_id, @airport_options, selected: params[:departure_airport_id]) %>
+  <div class="field is-horizontal">
+    <div class="field-body">
+      <div class="field">
+        <label class="label is-small"><%= form.label :departure_airport_id, "FROM" %></label>
+        <div class="control">
+          <div class="select is-primary"><%= form.select(:departure_airport_id, @airport_options, selected: params[:departure_airport_id]) %>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label is-small"><%= form.label :arrival_airport_id, "TO" %></label>
+        <div class="control">
+          <div class="select is-primary"><%= form.select(:arrival_airport_id, @airport_options, selected: params[:arrival_airport_id]) %>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label is-small"><%= form.label :num_passengers, "PASSENGERS" %></label>
+        <div class="control">
+          <div class="select is-primary"><%= form.select(:num_passengers, [1,2,3,4], selected: params[:num_passengers]) %>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label is-small"><%= form.label :depart_date, "DATE" %></label>
+        <div class="control">
+          <div class="select is-primary">
+            <%= form.date_select :depart_date, start_year: Date.today.year, use_short_month: true, order: [:month, :day, :year], selected: @selected_date, date_separator: '</div><div class="select is-primary">' %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div>
-    <%= form.label :arrival_airport_id, "Arrive" %>
-    <%= form.select(:arrival_airport_id, @airport_options, selected: params[:arrival_airport_id]) %>
+  <br>
+  <div class="field">
+    <div class="control">
+      <%= form.submit "Find Flights", class: "button is-success" %>
+    </div>
   </div>
-  <div>
-    <%= form.label :num_passengers, "Passengers" %>
-    <%= form.select(:num_passengers, [1,2,3,4], selected: params[:num_passengers]) %>
-  </div>
-  <div>
-    <%= form.label :depart_date, "Date" %>
-    <%= form.date_select :depart_date, start_year: Date.today.year, use_short_month: true, order: [:month, :day, :year], selected: @selected_date %>
-  </div>
-  <%= form.submit "Search" %>
+</div>
 <% end %>
