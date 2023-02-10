@@ -19,10 +19,12 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @booking = Booking.find(params[:id])
+    @flight = @booking.flight
   end
 
   private 
   def booking_params
-    params.require(:booking).permit(:flight_id, passengers_attributes: [:first_name, :last_name, :email])
+    params.require(:booking).permit(:flight_id, passengers_attributes: [:first_name, :last_name, :email, :_destroy])
   end
 end
