@@ -72,3 +72,5 @@ group :test do
 end
 
 gem 'activesupport'
+
+gem "bulma-rails", "~> 0.9.4"
