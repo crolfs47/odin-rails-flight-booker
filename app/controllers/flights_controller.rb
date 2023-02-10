@@ -1,9 +1,9 @@
 class FlightsController < ApplicationController
   def index
     @flights = Flight.all
-    # @date_options = Flight.all.map { |flight| [flight.depart_date_formatted] }
     @airport_options = Airport.all.map { |airport| [airport.code, airport.id] }
     @available_flights = find_flights
+    
   end
 
   private
@@ -24,6 +24,6 @@ class FlightsController < ApplicationController
 
   def flights_params
     params.require(:flight).permit(:departure_airport_id, :arrival_airport_id, :depart_date, :flight_duration,
-                                   :num_passengers)
+                                   :num_passengers, :depart_time)
   end
 end

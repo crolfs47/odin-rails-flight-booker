@@ -1,17 +1,22 @@
 
-
-  <h3 class="title is-4">AVAILABLE FLIGHTS</h3>
-  <%= form_with url: new_booking_path, method: :get do |form| %>
-    <% if @available_flights.length == 0 %>
-      <%= "No available flights on that date" %>
-    <% else %> 
-      <%= form.hidden_field :num_passengers, value: params[:num_passengers] %>
-      <% @available_flights.each do |flight| %>
-        <div class="notification is-light">
-          <%= form.radio_button :flight_id, flight.id %>
-          <%= "#{flight.departure_airport.code} ⮕ #{flight.arrival_airport.code} | #{flight.depart_time.strftime('%-I:%M %p')}  |  #{flight.flight_duration/60} hours #{flight.flight_duration%60} minutes" %>
-        </div>
-      <% end %>
-      <%= form.submit "Book Flight", class: "button is-success"  %>
+<h3 class="title is-4">AVAILABLE FLIGHTS</h3>
+<%= form_with url: new_booking_path, method: :get do |form| %>
+  <% if @available_flights.length == 0 %>
+    <%= "No available flights on that date" %>
+  <% else %>
+    <%= form.hidden_field :num_passengers, value: params[:num_passengers] %>
+    <% @available_flights.each do |flight| %>
+      <table class="table is-narrow is-hoverable">
+        <tr>
+          <th><%= form.radio_button :flight_id, flight.id %></th>
+          <th><%= flight.departure_airport.code %></th>
+          <th>⮕</th>
+          <th><%= flight.arrival_airport.code %> </th>
+          <th><%= flight.depart_time.strftime('%-I:%M %p') %></th>
+          <th><%= "Duration: #{flight.flight_duration/60} hours #{flight.flight_duration%60} minutes" %></th>
+        </tr>
+      </table>
     <% end %>
+    <%= form.submit "Book Flight", class: "button is-success"  %>
   <% end %>
+<% end %>
