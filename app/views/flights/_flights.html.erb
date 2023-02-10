@@ -13,7 +13,7 @@
           <th>⮕</th>
           <th><%= flight.arrival_airport.code %> </th>
           <th><%= flight.depart_time.strftime('%-I:%M %p') %></th>
-          <th><%= "Duration: #{flight.flight_duration/60} hours #{flight.flight_duration%60} minutes" %></th>
+          <th><%= "Duration: #{flight.flight_duration/60}h #{flight.flight_duration%60}m" %></th>
         </tr>
       </table>
     <% end %>

@@ -1,4 +1,7 @@
-<h1> Booking </h1>
+<br>
+<div class="container">
+  <section class="box">
+<h1 class="title is-4"> Your Trip Summary </h1>
 <div>
   <%= form_with model: @booking do |form| %>
     <div>
@@ -6,19 +9,21 @@
       <%= render 'flight_details' %>
     </div>
     <br>
-    Passengers:
+    <h1 class="title is-5">Passenger Details:</h1>
     <div>
       <%= form.fields_for :passengers do |passenger_form| %>
         <div>
-          <%= passenger_form.label :first_name, "First Name" %>
+          <%= passenger_form.label :first_name, "First Name:" %>
           <%= passenger_form.text_field :first_name, required: true %>
-          <%= passenger_form.label :last_name, "Last Name" %>
+          <%= passenger_form.label :last_name, "Last Name:" %>
           <%= passenger_form.text_field :last_name, required: true %>
-          <%= passenger_form.label :email, "Email" %>
+          <%= passenger_form.label :email, "Email:" %>
           <%= passenger_form.text_field :email, required: true %>
         </div>
       <%end%><br>
-      <%= form.submit "Book Flight" %>
+      <%= form.submit "Finalize Booking", class: "button is-success" %>
     </div>
   <%end%>
 </div>
+    </section>
+  </div>
