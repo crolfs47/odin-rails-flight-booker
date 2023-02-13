@@ -6,10 +6,10 @@ checkout process for booking a one-way flight - 1. Enter desired dates/airports 
 among a list of available flights, 3. Enter passenger info for all passengers.
 
 ## Features:
- - Users can book a one-way flight within the nest 30 days from and to the 10 largest airports in the US
+ - Users can book a one-way flight within the next 30 days from and to the 10 largest airports in the US
  - Handles booking flights for 1-4 passengers
  - Users can select from a list of available flights that meet their search criteria
- - Prior to booking, users input passenger information
+ - Prior to booking the selected flight, users input passenger information
  - Once flight is booked, confirmation page shows the trip summary with flight and passenger details
 
 ## Languages/Technologies used:
@@ -40,3 +40,17 @@ Assignment - https://www.theodinproject.com/lessons/ruby-on-rails-flight-booker
 View Project  - TBD, haven't decided what to deploy on since Heroku is no longer free. See screenshots below.
 
 ## Screenshots: 
+Search for flights:
+![f](https://user-images.githubusercontent.com/97067689/218544471-8afe621c-5616-456e-a0b7-5738bb3eaaa3.png)
+
+Search for flights:
+![f](https://user-images.githubusercontent.com/97067689/218545367-db88669c-ae03-480f-ad98-72073120e572.png)
+
+Enter passenger info:
+![f](https://user-images.githubusercontent.com/97067689/218545634-ce888026-582a-4b9f-94bf-9efe9f1dfe99.png)
+
+Flight confirmation:
+![f](https://user-images.githubusercontent.com/97067689/218545783-539c9d02-eeed-485c-954f-c315fc2c7952.png)
+
+
+
