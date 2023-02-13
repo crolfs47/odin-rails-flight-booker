@@ -1,5 +1,5 @@
-# odin-rails-flight-tracker
-## The Odin Project - Flight Tracker
+# odin-rails-flight-booker
+## The Odin Project - Flight Booker
 
 Project completed as part of The Odin Project. Build an app that handles the first three steps of a typical 
 checkout process for booking a one-way flight - 1. Enter desired dates/airports and search, 2. Choose from
