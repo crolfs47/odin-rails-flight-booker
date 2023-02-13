@@ -26,7 +26,7 @@
         <label class="label is-small"><%= form.label :depart_date, "DATE" %></label>
         <div class="control">
           <div class="select is-primary">
-            <%= form.date_select :depart_date, start_year: Date.today.year, use_short_month: true, order: [:month, :day, :year], selected: @selected_date, date_separator: '</div><div class="select is-primary">' %>
+            <%= form.date_select :depart_date, start_year: Date.today.year, end_year: Date.today.year, use_short_month: true, order: [:month, :day, :year], selected: @selected_date, date_separator: '</div><div class="select is-primary">' %>
           </div>
         </div>
       </div>

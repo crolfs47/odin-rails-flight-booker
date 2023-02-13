@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+require 'time'
+
 Airport.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!('airports')
 Flight.destroy_all
@@ -25,28 +27,37 @@ airports = Airport.create([
 
 puts "Created #{airports.length} airports"
 
-# airports.each do |depart|
-#   p depart.id
-# end
+airports.each do |depart_airport|
+  1000.times do |i|
+    Flight.create({
+      departure_airport_id: depart_airport.id,
+      arrival_airport_id: rand(1..10), 
+      depart_date: Date.today + rand(30),
+      flight_duration: rand(45..300),
+      depart_time: rand(Time.parse('5 am')..Time.parse('10:00 pm')),
+    })
+  end
+end
 
+puts "Generated random flights"
 
-flights = Flight.create([
-  { departure_airport_id: 1, arrival_airport_id: 2, depart_date: "2023-03-01", flight_duration: 120, depart_time: "08:00" },
-  { departure_airport_id: 1, arrival_airport_id: 2, depart_date: "2023-03-01", flight_duration: 160, depart_time: "09:30" },
-  { departure_airport_id: 1, arrival_airport_id: 2, depart_date: "2023-03-01", flight_duration: 120, depart_time: "10:00" },
-  { departure_airport_id: 1, arrival_airport_id: 3, depart_date: "2023-03-01", flight_duration: 160, depart_time: "11:00" },
-  { departure_airport_id: 1, arrival_airport_id: 4, depart_date: "2023-03-01", flight_duration: 120, depart_time: "12:00" },
-  { departure_airport_id: 1, arrival_airport_id: 5, depart_date: "2023-03-01", flight_duration: 160, depart_time: "13:00" },
-  { departure_airport_id: 1, arrival_airport_id: 6, depart_date: "2023-03-01", flight_duration: 120, depart_time: "13:30" },
-  { departure_airport_id: 1, arrival_airport_id: 7, depart_date: "2023-03-01", flight_duration: 160, depart_time: "14:00" },
-  { departure_airport_id: 2, arrival_airport_id: 3, depart_date: "2023-03-02", flight_duration: 120, depart_time: "15:00" },
-  { departure_airport_id: 3, arrival_airport_id: 4, depart_date: "2023-03-03", flight_duration: 160, depart_time: "15:30" },
-  { departure_airport_id: 4, arrival_airport_id: 5, depart_date: "2023-03-04", flight_duration: 120, depart_time: "16:00" },
-  { departure_airport_id: 5, arrival_airport_id: 6, depart_date: "2023-03-05", flight_duration: 150, depart_time: "17:00" },
-  { departure_airport_id: 6, arrival_airport_id: 7, depart_date: "2023-03-06", flight_duration: 120, depart_time: "18:00" },
-  { departure_airport_id: 7, arrival_airport_id: 8, depart_date: "2023-03-07", flight_duration: 150, depart_time: "18:30" },
-  { departure_airport_id: 8, arrival_airport_id: 9, depart_date: "2023-03-08", flight_duration: 120, depart_time: "19:00" },
-  { departure_airport_id: 9, arrival_airport_id: 10, depart_date: "2023-03-09", flight_duration: 150, depart_time: "07:00" },
-  { departure_airport_id: 10, arrival_airport_id: 1, depart_date: "2023-03-10", flight_duration: 120, depart_time: "06:00" },
-              ])
-puts "Created #{flights.length} flights"
+# flights = Flight.create([
+#   { departure_airport_id: 1, arrival_airport_id: 2, depart_date: "2023-03-01", flight_duration: 120, depart_time: "08:00" },
+#   { departure_airport_id: 1, arrival_airport_id: 2, depart_date: "2023-03-01", flight_duration: 160, depart_time: "09:30" },
+#   { departure_airport_id: 1, arrival_airport_id: 2, depart_date: "2023-03-01", flight_duration: 120, depart_time: "10:00" },
+#   { departure_airport_id: 1, arrival_airport_id: 3, depart_date: "2023-03-01", flight_duration: 160, depart_time: "11:00" },
+#   { departure_airport_id: 1, arrival_airport_id: 4, depart_date: "2023-03-01", flight_duration: 120, depart_time: "12:00" },
+#   { departure_airport_id: 1, arrival_airport_id: 5, depart_date: "2023-03-01", flight_duration: 160, depart_time: "13:00" },
+#   { departure_airport_id: 1, arrival_airport_id: 6, depart_date: "2023-03-01", flight_duration: 120, depart_time: "13:30" },
+#   { departure_airport_id: 1, arrival_airport_id: 7, depart_date: "2023-03-01", flight_duration: 160, depart_time: "14:00" },
+#   { departure_airport_id: 2, arrival_airport_id: 3, depart_date: "2023-03-02", flight_duration: 120, depart_time: "15:00" },
+#   { departure_airport_id: 3, arrival_airport_id: 4, depart_date: "2023-03-03", flight_duration: 160, depart_time: "15:30" },
+#   { departure_airport_id: 4, arrival_airport_id: 5, depart_date: "2023-03-04", flight_duration: 120, depart_time: "16:00" },
+#   { departure_airport_id: 5, arrival_airport_id: 6, depart_date: "2023-03-05", flight_duration: 150, depart_time: "17:00" },
+#   { departure_airport_id: 6, arrival_airport_id: 7, depart_date: "2023-03-06", flight_duration: 120, depart_time: "18:00" },
+#   { departure_airport_id: 7, arrival_airport_id: 8, depart_date: "2023-03-07", flight_duration: 150, depart_time: "18:30" },
+#   { departure_airport_id: 8, arrival_airport_id: 9, depart_date: "2023-03-08", flight_duration: 120, depart_time: "19:00" },
+#   { departure_airport_id: 9, arrival_airport_id: 10, depart_date: "2023-03-09", flight_duration: 150, depart_time: "07:00" },
+#   { departure_airport_id: 10, arrival_airport_id: 1, depart_date: "2023-03-10", flight_duration: 120, depart_time: "06:00" },
+#               ])
+# puts "Created #{flights.length} flights"
