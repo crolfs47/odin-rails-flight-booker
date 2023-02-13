@@ -34,7 +34,7 @@ airports.each do |depart_airport|
       arrival_airport_id: rand(1..10), 
       depart_date: Date.today + rand(30),
       flight_duration: rand(45..300),
-      depart_time: rand(Time.parse('5 am')..Time.parse('10:00 pm')),
+      depart_time: rand(Time.find_zone("UTC").parse('5:00 am')..Time.find_zone("UTC").parse('10:00 pm')),
     })
   end
 end
