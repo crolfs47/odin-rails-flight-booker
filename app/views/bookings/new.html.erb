@@ -1,29 +1,34 @@
 <br>
 <div class="container">
   <section class="box">
-<h1 class="title is-4"> Your Trip Summary </h1>
-<div>
-  <%= form_with model: @booking do |form| %>
+    <h1 class="title is-4"> Your Trip Summary </h1>
     <div>
-      <%= form.hidden_field :flight_id, value: params[:flight_id] %>
-      <%= render 'flight_details' %>
-    </div>
-    <br>
-    <h1 class="title is-5">Passenger Details:</h1>
-    <div>
-      <%= form.fields_for :passengers do |passenger_form| %>
+      <%= form_with model: @booking do |form| %>
         <div>
-          <%= passenger_form.label :first_name, "First Name:" %>
-          <%= passenger_form.text_field :first_name, required: true %>
-          <%= passenger_form.label :last_name, "Last Name:" %>
-          <%= passenger_form.text_field :last_name, required: true %>
-          <%= passenger_form.label :email, "Email:" %>
-          <%= passenger_form.text_field :email, required: true %>
+          <%= form.hidden_field :flight_id, value: params[:flight_id] %>
+          <%= render 'flight_details' %>
         </div>
-      <%end%><br>
-      <%= form.submit "Finalize Booking", class: "button is-success" %>
+        <br>
+        <h1 class="title is-5">Passenger Details</h1>
+        <div>
+          <% count = 1 %>
+          <%= form.fields_for :passengers do |passenger_form| %>
+            <div>
+              <h1 class="has-text-weight-bold"><%= "Passenger #{count}:"%></h1>
+              <div>
+                <%= passenger_form.label :first_name, "First Name:" %>
+                <%= passenger_form.text_field :first_name, required: true %>
+                <%= passenger_form.label :last_name, "Last Name:" %>
+                <%= passenger_form.text_field :last_name, required: true %>
+                <%= passenger_form.label :email, "Email:" %>
+                <%= passenger_form.text_field :email, required: true %>
+              </div>
+              <% count += 1 %><br>
+            </div>
+          <%end%><br>
+          <%= form.submit "Finalize Booking", class: "button is-success" %>
+        </div>
+      <%end%>
     </div>
-  <%end%>
+  </section>
 </div>
-    </section>
-  </div>
