@@ -74,3 +74,5 @@ end
 gem 'activesupport'
 
 gem "bulma-rails", "~> 0.9.4"
+
+gem "letter_opener", group: :development
