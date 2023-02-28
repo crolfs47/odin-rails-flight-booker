@@ -10,7 +10,7 @@ among a list of available flights, 3. Enter passenger info for all passengers.
  - Handles booking flights for 1-4 passengers
  - Users can select from a list of available flights that meet their search criteria
  - Prior to booking the selected flight, users input passenger information
- - Once flight is booked, confirmation page shows the trip summary with flight and passenger details
+ - Once flight is booked, confirmation page shows the trip summary with flight and passenger details and an email is sent to each passenger in the booking
 
 ## Languages/Technologies used:
  - Rails 
@@ -20,6 +20,8 @@ among a list of available flights, 3. Enter passenger info for all passengers.
  - VS Code
  - Git/Github
  - Forms
+ - Action Mailer
+ - Letter Opener Gem
 
 ## What I learned:
  - How to seed database with random data, generated 10,000 flights
@@ -30,6 +32,8 @@ among a list of available flights, 3. Enter passenger info for all passengers.
  - Better understanding of the MVC - Model-View-Controller pattern
  - More complex ActiveRecord assocations
  - ActiveRecord querying
+ - How to send a confirmation email to passengers when a booking is made using Action Mailer
+ - How to use Letter Opener gem to open emails in the browser instead of sending them while testing app
  
 ## Still can improve:
  - Kept this simple, but could add more functionality for users
