@@ -1,5 +1,6 @@
     <h3 class="title is-5">Flight Details</h3>
     <div class="is-size-5"><%= "#{@flight.departure_airport.code} ⮕ #{@flight.arrival_airport.code}" %></div>
+    <div><%= "Flight #: #{@flight.id}" %></div>
     <div><%= "Date: #{@flight.depart_date.strftime('%B %d, %Y')}" %></div>
     <div><%= "Time: #{@flight.depart_time.strftime('%-I:%M %p')}" %></div>
     <div><%= "Duration: #{@flight.flight_duration/60}h #{@flight.flight_duration%60}m" %></div>

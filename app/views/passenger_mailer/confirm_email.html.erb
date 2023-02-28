@@ -4,6 +4,13 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Your flight is confirmed</h1>
+    <h3>Your flight to <%= @booking.flight.arrival_airport.code %> is confirmed!</h3>
+    <%= render 'bookings/flight_details', flight: @flight %>
+    <h3 class="title is-5"> Passengers </h3>
+    <% @booking.passengers.each do |passenger| %>
+      <div>
+        <%= "#{passenger.first_name} #{passenger.last_name}" %>
+      </div>
+    <% end %>
   </body>
 </html>
