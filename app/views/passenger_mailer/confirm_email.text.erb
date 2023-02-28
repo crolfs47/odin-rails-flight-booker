@@ -1,1 +1,14 @@
-Your flight is confirmed.
+Your flight to <%= @booking.flight.arrival_airport.code %> is confirmed!
+
+Flight Details
+
+<%= "#{@flight.departure_airport.code} ⮕ #{@flight.arrival_airport.code}" %>
+<%= "Date: #{@flight.depart_date.strftime('%B %d, %Y')}" %>
+<%= "Time: #{@flight.depart_time.strftime('%-I:%M %p')}" %>
+<%= "Duration: #{@flight.flight_duration/60}h #{@flight.flight_duration%60}m" %>
+
+Passengers
+
+<% @booking.passengers.each do |passenger| %>
+<%= "#{passenger.first_name} #{passenger.last_name}" %>
+<% end %>
